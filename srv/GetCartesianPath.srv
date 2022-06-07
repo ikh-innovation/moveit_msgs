@@ -29,25 +29,15 @@ float64 max_step
 # and the returned path is truncated before the step.
 float64 jump_threshold
 
-# If prismatic_jump_threshold or revolute_jump_threshold are set > 0, then for
-# all active prismatic or revolute joints, the joint-space difference between
-# consecutive waypoints is compared to the respective absolute threshold.
-# If any threshold is exceeded, this step is considered a jump and the returned path
-# is truncated before the step.
-float64 prismatic_jump_threshold
-float64 revolute_jump_threshold
-
 # Set to true if collisions should be avoided when possible
 bool avoid_collisions
 
 # Specify additional constraints to be met by the Cartesian path
 Constraints path_constraints
 
-# Maximum cartesian speed for the given end effector.
+# Maximum cartesian speed for the given link.
 # If max_cartesian_speed <= 0 the trajectory is not modified.
-# WARNING NOT FUNCTIONAL YET.
-# REQUIRES https://github.com/ros-planning/moveit/pull/2674
-string cartesian_speed_end_effector_link
+string cartesian_speed_limited_link
 float64 max_cartesian_speed # m/s
 
 ---
