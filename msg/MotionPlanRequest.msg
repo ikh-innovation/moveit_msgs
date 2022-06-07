@@ -20,8 +20,8 @@ Constraints path_constraints
 # The constraints the resulting trajectory must satisfy
 TrajectoryConstraints trajectory_constraints
 
-# The name of the motion planner to use. If no name is specified,
-# a default motion planner will be used
+# The name of the planning algorithm to use. If no name is specified,
+# the default planner of the planning pipeline will be used
 string planner_id
 
 # The name of the group of joints on which this planner is operating
@@ -42,3 +42,9 @@ float64 allowed_planning_time
 # internally (i.e., maximum joint velocity or maximum joint acceleration).
 float64 max_velocity_scaling_factor
 float64 max_acceleration_scaling_factor
+
+# Maximum cartesian speed for the given link.
+# If max_cartesian_speed <= 0 the trajectory is not modified.
+# These fields require the following planning request adapter: default_planner_request_adapters/LimitMaxCartesianLinkSpeed
+string cartesian_speed_limited_link
+float64 max_cartesian_speed # m/s
